@@ -1,0 +1,17 @@
+---
+
+- name: Validate role variables
+  block:
+    - name: Non-Debian OS's are not yet supported
+      assert:
+        that:
+          - ansible_os_family == "Debian"
+        fail_msg: "[FAIL] Unfortunately, the BLE Monitor role has not yet implemented {{ ansible_os_family }}."
+        success_msg: "[PASS] Target OS Family is Debian"
+
+    - name: MQTT Version is valid
+      assert:
+        that:
+
+
+

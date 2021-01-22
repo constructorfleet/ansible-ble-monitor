@@ -1,0 +1,16 @@
+# ---------------------------
+#
+# MOSQUITTO PREFERENCES
+#
+# ---------------------------
+
+mqtt_version='mqttv{{ mqtt_version_map[mqtt_version] | default('311') }}'
+mqtt_address={{ mqtt_host }}
+mqtt_port='{{ mqtt_port | default(1883) | int }}'
+mqtt_certificate_path='{{ mqtt_certificate_path | default("") }}'
+
+mqtt_publisher_identity='{{ ble_monitor_identifier | default(mqtt_username) }}'
+mqtt_user='{{ mqtt_username | default ('blemonitor') }}'
+{{ (mqtt_password | default(None)) is defined and 'mqtt_password="'~mqtt_password~'"' }}
+
+mqtt_topicpath='{{ ble_monitor_mqtt_topic_base | default('monitor') }}'

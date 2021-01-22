@@ -1,0 +1,26 @@
+---
+
+- name: Install Dependencies (Debian)
+  import_tasks: install-debian.yml
+  tags:
+    - install
+  when:
+    - ansible_os_family == "Debian"
+
+- name: Ensure install path exists
+  file:
+    path: '{{ ble_monitor_install_path }}'
+    state: directory
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - install
+
+- name: Retrive Monitor.sh repo
+  git:
+    repo: 'https://www.github.com/andrewjfreyer/monitor.git'
+    dest: '{{ ble_monitor_install_path }}'
+    version: '{{ monitor_version }}'
+  tags:
+    - install

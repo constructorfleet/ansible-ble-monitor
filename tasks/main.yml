@@ -1,0 +1,39 @@
+---
+
+- name: Validate variables
+  import_tasks: validate.yml
+  tags:
+    - always
+
+- name: Install Monitor.sh
+  import_tasks: install.yml
+  tags:
+    - install
+
+- name: Configure Monitor service
+  import_tasks: configuration_files.yml
+  tags:
+    - install
+    - configure
+
+- name: Create Monitor service file
+  template:
+    dest: /etc/systemd/system/monitor.service
+    src: monitor.service.j2
+    owner: root
+    group: root
+    mode: 0644
+  register: service_file
+  tags:
+    - install
+    - config
+
+- name: Register, enable and start Monitor service
+  systemd:
+    name: monistor.service
+    state: "{{ (service_file is changed or configuration_files is changed) | ternary('restarted', 'started') }}"
+    enabled: yes
+    daemon_reload: yes
+  tags:
+    - install
+    - config

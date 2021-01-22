@@ -1,0 +1,19 @@
+---
+
+- name: Write configuration files
+  template:
+    dest: '{{ ble_monitor_install_path }}/{{ item }}'
+    src: '{{ item }}.j2'
+    owner: root
+    group: root
+    mode: 0644
+  loop:
+    - address_blacklist
+    - behavior_preferences
+    - known_beacon_addresses
+    - known_static_addresses
+    - mqtt_preferences
+  register: configuration_files
+  tags:
+    - configure
+

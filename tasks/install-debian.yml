@@ -1,0 +1,43 @@
+---
+
+- name: Upgrade Apt packages
+  apt:
+    update_cache: yes
+    upgrade: yes
+
+- name: Upgrade Dist
+  apt:
+    upgrade: dist
+
+- name: Ensure bluetooth and utilities are installed
+  apt:
+    name:
+      - pi-bluetooth
+      - bluez-hcidump
+      - bc
+    state: present
+
+- name: Add mosquitto apt repo key
+  apt_key:
+    url: http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
+
+- name: Add mosquitto apt repo to sources
+  apt_repository:
+    repo: http://repo.mosquitto.org/debian/mosquitto-buster.list
+    state: present
+    update_cache: yes
+
+- name: Install mosquitto
+  apt:
+    name:
+      - libmosquitto-dev
+      - mosquitto
+      - mosquitto-clients
+      - libmosquitto1
+      - git
+    state: present
+    update_cache: yes
+
+
+
+

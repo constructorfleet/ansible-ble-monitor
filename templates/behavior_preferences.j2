@@ -1,0 +1,42 @@
+# ---------------------------
+#
+# BEHAVIOR PREFERENCES
+#
+# ---------------------------
+
+## BLE Scanning Settings
+
+PREF_ARRIVAL_SCAN_ATTEMPTS={{ arrival_max_scans | int }}
+PREF_DEPART_SCAN_ATTEMPTS={{ departure_max_scans | int }}
+PREF_BEACON_EXPIRATION={{ beacon_expiration_seconds | int }}
+PREF_MINIMUM_TIME_BETWEEN_SCANS={{ minimum_scan_interval | int }}
+PREF_INTERSCAN_DELAY={{ name_request_interval | int }}
+PREF_HCI_DEVICE="{{ hci_device }}"
+PREF_COOPERATIVE_SCAN_THRESHOLD={{ cooperative_scan_confidence_threshold | ensure_percent }}
+PREF_RSSI_IGNORE_BELOW={{ rssi_threshold | int }}
+PREF_RSSI_CHANGE_THRESHOLD={{ rssi_delta_report_trigger | int }}
+PREF_ARRIVE_SCAN_INTERVAL={{ minimum_arrival_scan_interval | int }}
+PREF_DEPART_SCAN_INTERVAL={{ minimum_departure_scan_interval | int }}
+PREF_ADVERTISEMENT_OBSERVED_INTERVAL_STEP={{ observed_advertisement_interval | int }}
+PREF_RANDOM_DEVICE_EXPIRATION_INTERVAL={{ anonymous_expiration_seconds | int }}
+PREF_PERCENT_CONFIDENCE_REPORT_THRESHOLD={{ confidence_reporting_threshold | ensure_percent }}
+
+## Device Filtering Settings
+
+PREF_PASS_FILTER_ADV_FLAGS_ARRIVE="{{ pass_regex | default('.*') }}"
+PREF_PASS_FILTER_MANUFACTURER_ARRIVE="{{ allow_manufacturer_regex | default('.*') }}"
+PREF_PASS_FILTER_PDU_TYPE="{{ ble_filter_pdu_regex | default('') }}"
+PREF_FAIL_FILTER_ADV_FLAGS_ARRIVE="{{ ignore_regex | default('NONE')}}"
+PREF_FAIL_FILTER_MANUFACTURER_ARRIVE="{{ ble_filter_ignore_manufacturers | default('NONE') }}"
+
+## Report Settings
+PREF_MQTT_REPORT_SCAN_MESSAGES={{ report_scan_messages | default(False) | bool }}
+PREF_ALIAS_MODE={{ ble_report_alias | default(True) | bool }}
+PREF_DEVICE_TRACKER_REPORT={{ report_device_tracker | default(False) | bool }}
+
+## Device Tracker Report Settings
+PREF_DEVICE_TRACKER_HOME_STRING="{{ device_tracker_state_when_present | default('home') }}"
+PREF_DEVICE_TRACKER_AWAY_STRING="{{ device_tracker_state_when_absent | default('not_home') }}"
+
+
+

@@ -1,0 +1,60 @@
+---
+
+monitor_version: master
+
+## MQTT Settings
+mqtt_host: 0.0.0.0
+mqtt_port: 1883
+mqtt_username: blemonitor
+# mqtt_certificate_path:
+mqtt_version: 3.11
+ble_monitor_mqtt_topic_base: monitor
+ble_monitor_identifier: blemonitor1
+
+## BLE Scanning Settings
+arrival_max_scans: 1
+departure_max_scans: 2
+beacon_expiration_seconds: 240
+minimum_scan_interval: 50
+name_request_interval: 3
+anonymous_expiration_seconds: 75
+rssi_delta_report_trigger: -20
+rssi_threshold: -75
+hci_device: hci0
+cooperative_scan_confidence_threshold: 60
+confidence_reporting_threshold: 59
+minimum_departure_scan_interval: 30
+minimum_arrival_scan_interval: 15
+observed_advertisement_interval: 50
+
+## Device Filtering Settings
+pass_pdu_values:
+  - ADV_IND
+  - ADV_SCAN_IND
+  - ADV_NONCONN_IND
+  - SCAN_RSP
+pass_regex: '.*'
+pass_manufacturers:
+  - '.*'
+# ignore_regex:
+# ignore_manufacturers: []
+
+## Report Settings
+report_scan_messages: false
+reporting_mode: alias  # Options: alias, mac
+report_device_tracker: false
+
+### Device Tracker Report SettingsA
+device_tracker_state_when_present: home
+device_tracker_state_when_absent: not_home
+
+## Service Options
+service_options:
+  scan_repeatedly: true
+  scan_for_beacons: true
+  report_all_results: true
+  on_trigger:
+    scan_known_devices: true
+    scan_arrivals: true
+    scan_depart: true
+    relay_arrive_depart: true

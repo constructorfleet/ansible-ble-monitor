@@ -1,0 +1,13 @@
+[Unit]
+Description=Monitor Service
+After=network.target
+
+[Service]
+User=root
+ExecStart=/bin/bash {{ ble_monitor_install_path }}/monitor.sh {{ service_options | as_service_args }}  &
+WorkingDirectory={{ ble_monitor_install_path }}
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target network.target
