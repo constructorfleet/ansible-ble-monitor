@@ -23,7 +23,7 @@
 
 - name: Add mosquitto apt repo to sources
   apt_repository:
-    repo: http://repo.mosquitto.org/debian/mosquitto-buster.list
+    repo: deb https://repo.mosquitto.org/debian buster main
     state: present
     update_cache: yes
 
