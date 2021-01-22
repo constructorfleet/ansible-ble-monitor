@@ -12,14 +12,14 @@ PREF_BEACON_EXPIRATION={{ beacon_expiration_seconds | int }}
 PREF_MINIMUM_TIME_BETWEEN_SCANS={{ minimum_scan_interval | int }}
 PREF_INTERSCAN_DELAY={{ name_request_interval | int }}
 PREF_HCI_DEVICE="{{ hci_device }}"
-PREF_COOPERATIVE_SCAN_THRESHOLD={{ cooperative_scan_confidence_threshold | ensure_percent }}
+PREF_COOPERATIVE_SCAN_THRESHOLD={{ cooperative_scan_confidence_threshold | int }}
 PREF_RSSI_IGNORE_BELOW={{ rssi_threshold | int }}
 PREF_RSSI_CHANGE_THRESHOLD={{ rssi_delta_report_trigger | int }}
 PREF_ARRIVE_SCAN_INTERVAL={{ minimum_arrival_scan_interval | int }}
 PREF_DEPART_SCAN_INTERVAL={{ minimum_departure_scan_interval | int }}
 PREF_ADVERTISEMENT_OBSERVED_INTERVAL_STEP={{ observed_advertisement_interval | int }}
 PREF_RANDOM_DEVICE_EXPIRATION_INTERVAL={{ anonymous_expiration_seconds | int }}
-PREF_PERCENT_CONFIDENCE_REPORT_THRESHOLD={{ confidence_reporting_threshold | ensure_percent }}
+PREF_PERCENT_CONFIDENCE_REPORT_THRESHOLD={{ confidence_reporting_threshold | int }}
 
 ## Device Filtering Settings
 
