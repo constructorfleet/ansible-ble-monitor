@@ -10,7 +10,7 @@ mqtt_version_map:
 
 ble_filter_pdu_regex: "{{ '|'.join(pass_pdu_values | default([])) }}"
 ble_filter_manufacturers: "{{ '|'.join(pass_manufacturers | default([])) }}"
-ble_filter_ignore_manufacturers: "{{ '|'.join()ignore_manufacturers | default([]) }}"
+ble_filter_ignore_manufacturers: "{{ '|'.join(ignore_manufacturers | default([])) }}"
 
 ble_report_alias: "{{ (reporting_mode | default('alias') | lower) == 'alias' }}"
 
