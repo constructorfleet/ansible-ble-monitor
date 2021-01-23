@@ -55,14 +55,13 @@ pass_manufacturers:
 
 ### Service Options
 service_options:
-  scan_repeatedly: true
-  scan_for_beacons: true
-  report_all_results: true
-  on_trigger:
-    scan_known_devices: true
-    scan_arrivals: true
-    scan_depart: true
-    relay_arrive_depart: true
+  - repeat
+  - beacons
+  - report_all
+service_trigger_options:
+  - arrivals
+  - departures
+  - relay
 
 ## Example playbook
 

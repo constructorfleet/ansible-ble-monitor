@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 User=root
-ExecStart=/bin/bash {{ ble_monitor_install_path }}/monitor.sh {{ service_options | as_service_args }}  &
+ExecStart=/bin/bash {{ ble_monitor_install_path }}/monitor.sh {{ service_trigger_options | length > 0 | ternary(ble_monitor_service_trigger_arg, '') }} {{ service_options | length > 0 | ternary(ble_monitor_service_args, '') }} &
 WorkingDirectory={{ ble_monitor_install_path }}
 Restart=always
 RestartSec=10
