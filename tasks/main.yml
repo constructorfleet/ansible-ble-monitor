@@ -30,7 +30,7 @@
 
 - name: Register, enable and start Monitor service
   systemd:
-    name: monistor.service
+    name: monitor.service
     state: "{{ (service_file is changed or configuration_files is changed) | ternary('restarted', 'started') }}"
     enabled: yes
     daemon_reload: yes
