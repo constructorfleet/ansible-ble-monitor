@@ -14,7 +14,7 @@ ble_filter_ignore_manufacturers: "{{ '|'.join(ignore_manufacturers | default([])
 
 ble_report_alias: "{{ (reporting_mode | default('alias') | lower) == 'alias' }}"
 
-ble_monitor_install_path: "/home/pi"
+ble_monitor_install_path: "/home/pi/monitor"
 
 service_option_to_argument:
   repeat: '-r'

@@ -22,12 +22,15 @@
     repo: 'https://www.github.com/andrewjfreyer/monitor.git'
     dest: '{{ ble_monitor_install_path }}'
     version: '{{ monitor_version }}'
+  register: monitor_repo
   tags:
     - install
 
-- name: Set version file
+- name: Perform first run of Monitor
   shell:
-    cmd: cat monitor.sh | grep version | grep -Eoe '[0-9].*' > .previous_version
+    cmd: bash monitor.sh
     chdir: '{{ ble_monitor_install_path }}'
+  when:
+    - monitor_repo is changed
   tags:
     - install
