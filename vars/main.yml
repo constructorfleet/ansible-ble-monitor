@@ -25,6 +25,6 @@ service_trigger_option_to_argument:
   departures: 'd'
   relay: 'r'
 
-ble_monitor_service_args: '{{service_option_to_argument.items() | selectattr(0, "in", service_options) | map('list') | map('last') | join(' ') }}'
+ble_monitor_service_args: "{{ service_option_to_argument.items() | selectattr(0, 'in', service_options) | map('list') | map('last') | join(' ') }}"
 
-ble_monitor_service_trigger_arg: '-t{{service_trigger_option_to_argument.items() | selectattr(0, "in", service_trigger_options) | map('list') | map('last') | join('') }}'
+ble_monitor_service_trigger_arg: "-t{{service_trigger_option_to_argument.items() | selectattr(0, 'in', service_trigger_options) | map('list') | map('last') | join('') }}"
