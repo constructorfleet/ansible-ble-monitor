@@ -26,7 +26,7 @@
   register: service_file
   tags:
     - install
-    - config
+    - configure
 
 - name: Register, enable and start Monitor service
   systemd:
@@ -36,4 +36,4 @@
     daemon_reload: yes
   tags:
     - install
-    - config
+    - configure
