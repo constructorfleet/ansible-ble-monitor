@@ -24,3 +24,10 @@
     version: '{{ monitor_version }}'
   tags:
     - install
+
+- name: Set version file
+  shell:
+    cmd: cat monitor.sh | grep version | grep -Eoe '[0-9].*' > .previous_version
+    chdir: '{{ ble_monitor_install_path }}'
+  tags:
+    - install
