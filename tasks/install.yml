@@ -30,6 +30,7 @@
   shell:
     cmd: bash monitor.sh
     chdir: '{{ ble_monitor_install_path }}'
+  failed_when: False
   when:
     - monitor_repo is changed
   tags:
