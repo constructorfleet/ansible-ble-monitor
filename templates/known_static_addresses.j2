@@ -5,6 +5,6 @@
 # 00:00:00:00:00:00 Alias #comment
 # ---------------------------
 
-{%- for device in known_devices | default([]) -%}
+{% for device in known_devices | default([]) %}
 {{ device.mac }} {{ device.name }}
 {% endfor %}

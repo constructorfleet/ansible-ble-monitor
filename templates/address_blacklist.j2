@@ -1,4 +1,4 @@
 #LIST MAC ADDRESSES TO IGNORE, ONE PER LINE:
-{%- for device in ble_blacklist | default([]) -%}
+{% for device in ble_blacklist | default([]) %}
 {{ device }}
 {%- endfor -%}

@@ -5,6 +5,6 @@
 # 	Format: 00:00:00:00:00:00 Nickname #comments
 # ---------------------------
 
-{%- for beacon in known_beacons | default([]) -%}
+{% for beacon in known_beacons | default([]) %}
 {{ beacon.mac }} {{ beacon.name }}
 {% endfor %}
