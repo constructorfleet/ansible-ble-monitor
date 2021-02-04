@@ -30,9 +30,9 @@ PREF_FAIL_FILTER_ADV_FLAGS_ARRIVE="{{ ignore_regex | default('NONE')}}"
 PREF_FAIL_FILTER_MANUFACTURER_ARRIVE="{{ ble_filter_ignore_manufacturers | default('NONE') }}"
 
 ## Report Settings
-PREF_MQTT_REPORT_SCAN_MESSAGES={{ report_scan_messages | default(False) | bool }}
-PREF_ALIAS_MODE={{ ble_report_alias | default(True) | bool }}
-PREF_DEVICE_TRACKER_REPORT={{ report_device_tracker | default(False) | bool }}
+PREF_MQTT_REPORT_SCAN_MESSAGES={{ report_scan_messages | default(False) | string | lower }}
+PREF_ALIAS_MODE={{ ble_report_alias | default(True) | string | lower }}
+PREF_DEVICE_TRACKER_REPORT={{ report_device_tracker | default(False) | string | lower }}
 
 ## Device Tracker Report Settings
 PREF_DEVICE_TRACKER_HOME_STRING="{{ device_tracker_state_when_present | default('home') }}"
