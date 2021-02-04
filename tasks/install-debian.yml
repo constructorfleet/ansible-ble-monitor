@@ -49,7 +49,7 @@
           - libmosquitto1
           - git
         state: present
-  when: mosquitto_pkgs_install is changed
+  when: mosquitto_pkgs_install is not changed
 
 
 
