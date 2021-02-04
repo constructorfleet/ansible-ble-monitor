@@ -26,6 +26,7 @@
   tags:
     - install
     - configure
+    - service
 
 - name: Register, enable and start Monitor service
   systemd:
@@ -36,3 +37,4 @@
   tags:
     - install
     - configure
+    - service
