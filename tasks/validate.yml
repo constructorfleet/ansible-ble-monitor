@@ -12,6 +12,8 @@
     - name: MQTT Version is valid
       assert:
         that:
+  tags:
+    - always
 
 
 

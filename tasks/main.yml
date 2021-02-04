@@ -13,7 +13,6 @@
 - name: Configure Monitor service
   import_tasks: configuration_files.yml
   tags:
-    - install
     - configure
 
 - name: Create Monitor service file

@@ -36,7 +36,6 @@
       - libmosquitto1
       - git
     state: present
-    update_cache: yes
 
 
 
