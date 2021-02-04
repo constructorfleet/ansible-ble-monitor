@@ -28,28 +28,28 @@
     state: present
   register: mosquitto_pkgs_install
 
-- name: Install REPO if needed
-  block:
-    - name: Add mosquitto apt repo key
-      apt_key:
-        url: http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
-
-    - name: Add mosquitto apt repo to sources
-      apt_repository:
-        repo: deb https://repo.mosquitto.org/debian buster main
-        state: present
-        update_cache: yes
-
-    - name: Install mosquitto
-      apt:
-        name:
-          - libmosquitto-dev
-          - mosquitto
-          - mosquitto-clients
-          - libmosquitto1
-          - git
-        state: present
-  when: mosquitto_pkgs_install is not changed
+#- name: Install REPO if needed
+#  block:
+#    - name: Add mosquitto apt repo key
+#      apt_key:
+#        url: http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
+#
+#    - name: Add mosquitto apt repo to sources
+#      apt_repository:
+#        repo: deb https://repo.mosquitto.org/debian buster main
+#        state: present
+#        update_cache: yes
+#
+#    - name: Install mosquitto
+#      apt:
+#        name:
+#          - libmosquitto-dev
+#          - mosquitto
+#          - mosquitto-clients
+#          - libmosquitto1
+#          - git
+#        state: present
+#  when: mosquitto_pkgs_install is not changed
 
 
 
