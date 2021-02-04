@@ -25,8 +25,8 @@ service_trigger_option_to_argument:
   departures: 'd'
   relay: 'r'
 
-ble_monitor_has_service_args: "{{ (service_options | length) > 0 }}"
-ble_monitor_has_service_trigger_args: "{{ (service_trigger_options | length) > 0 }}"
+ble_monitor_has_service_args: "{{ (service_options.items() | length) > 0 }}"
+ble_monitor_has_service_trigger_args: "{{ (service_trigger_options.items() | length) > 0 }}"
 
 ble_monitor_service_args: "{{ service_option_to_argument.items() | selectattr(0, 'in', service_options) | map('list') | map('last') | join(' ') }}"
 
